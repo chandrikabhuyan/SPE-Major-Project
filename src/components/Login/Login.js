@@ -1,51 +1,44 @@
-import React, { useState } from 'react';
-import PropTypes from 'prop-types';
-import './Login.css';
+import React from "react";
+import {Jumbotron,Row,Col} from "reactstrap";
+import {
+    Card,
+    CardBody,
+    CardTitle,
+    CardSubtitle,
+    CardText,
+    CardFooter,
+    Button,
+    Container,
+} from "reactstrap";
+import LoginForm from "./LoginForm";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Login.css";
 
-async function loginUser(credentials) {
-    return fetch('http://localhost:8088/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    })
-        .then(data => data.json())
-}
-
-export default function Login({ setToken }) {
-    const [username, setUserName] = useState();
-    const [password, setPassword] = useState();
-
-    const handleSubmit = async e => {
-        e.preventDefault();
-        const token = await loginUser({
-            username,
-            password
-        });
-        setToken(token);
-    }
-
+const Login=()=>{
     return(
-        <div className="login-wrapper">
-            <h1>Please Log In</h1>
-            <form onSubmit={handleSubmit}>
-                <label>
-                    <p>Username</p>
-                    <input type="text" onChange={e => setUserName(e.target.value)} />
-                </label>
-                <label>
-                    <p>Password</p>
-                    <input type="password" onChange={e => setPassword(e.target.value)} />
-                </label>
-                <div>
-                    <button type="submit">Submit</button>
-                </div>
-            </form>
+        <div className="Login">
+            <Container>
+                <Row>
+                    <Col />
+                    <Col lg="5">
+                        <Jumbotron style={{ width: '23rem'}}>
+                            <h3>
+                                <u>Login Form</u>
+                            </h3>
+                            <hr />
+                            <Card style={{ width: '19rem',background:'lightgrey'}}>
+                                <CardBody>
+                                    <LoginForm />
+                                </CardBody>
+                            </Card>
+                        </Jumbotron>
+                    </Col>
+                    <Col />
+                </Row>
+            </Container>
         </div>
-    )
+    );
+
 }
 
-Login.propTypes = {
-    setToken: PropTypes.func.isRequired
-};
+export default Login;

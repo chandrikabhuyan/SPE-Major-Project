@@ -1,9 +1,36 @@
-.login-wrapper {
+.Login {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+#submit {
+    background-color: cadetblue;
+}
+
+.jumbotron {
+    margin-top: 50px;
+    background-color: lightsteelblue;
+}
+
+hr {
+    width: 70%;
+}
+
+.login100-form-btn {
+    font-family: Poppins-Medium, sans-serif;
+    font-size: 16px;
+    color: royalblue;
+    line-height:1.2;
+    text-transform: uppercase;
+
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
     display: flex;
-    align-items: center;
-    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    padding: 0 20px;
     width: 100%;
-    min-height: 100%;
-    padding: 20px;
+    height: 50px;
 }
